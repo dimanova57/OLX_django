@@ -19,7 +19,7 @@
                 </li>
             {% endif %}
             <li class="nav-item active pr-3 mr-3">
-                <a class=" nav-text mt-0.5" href="/">Категорії<span class="sr-only">(current)</span></a>
+                <a class=" nav-text mt-0.5" href="/categories/">Категорії<span class="sr-only">(current)</span></a>
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item active pr-3 mr-3">
@@ -28,7 +28,11 @@
             {% endif %}
         </ul>
 
-        <a class="btn btn-color-olx" href="/add_product" role="button">Додати оголошення</a>
+        {% if user.is_authenticated %}
+            <a class="btn btn-color-olx" href="/add_product" role="button">Додати оголошення</a>
+        {% else %}
+            <a class="btn btn-color-olx" href="/auth/login" role="button">Додати оголошення</a>
+        {% endif %}
 
 
     </div>

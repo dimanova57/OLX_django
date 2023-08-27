@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Велика картинка (placeholder) -->
+                <img  src="https://via.placeholder.com/450" alt="Placeholder Image" class="img-fluid">
+            </div>
+            <div class="col-md-6" style="margin-left: -30px; margin-top: 80px;">
+                <!-- Назва продукту -->
+                <div>
+                    <h1><a href="/product/{{ product.id }}" style="text-decoration: none;"><b style="color: #042A31;">{{ product.title }}</b></a></h1>
+                </div>
+
+                <!-- Ціна -->
+                <div style="text-color: #042A31; margin-bottom: 30px">
+                    <h5>{{ product.price }} грн</h5>
+                </div>
+
+                <!-- Час публікації -->
+
+                <!-- Кнопка "Показати номер телефону" -->
+                <button class="btn btn-primary">Показати номер телефону</button>
+
+                <!-- Опис продукту -->
+                <p class="mt-4">{{ product.description }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

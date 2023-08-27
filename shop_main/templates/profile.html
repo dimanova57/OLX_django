@@ -2,15 +2,13 @@
 
 
 {% block content %}
-<form>
-<div class="input-group mb-3">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="query">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit">Пошук</button>
-        </div>
-</div>
-</form>
+<h1>Вітаємо {{ user.username }}!</h1>
 
+<div>
+    Ваш баланс: {{ user.balance }}
+    <a class="btn btn-color-olx" href="/balance" role="button">Поповнити баланс</a>
+</div>
+<h2 style="margin-top: 50px">Ваші замовлення</h2>
 
 {% for product in products %}
     <div class="container" style="border: 2px solid black; margin-top: 40px;">
@@ -29,6 +27,10 @@
                 <div style="margin: 4% 0% 1% 0%;">
                     <h2><a href="/product/{{ product.id }}" style="text-decoration: none;"><b style="color: #042A31;">{{ product.title }}</b></a></h2>
                 </div>
+                <div style="margin-top: 4px; text-color: #042A31;">
+                    <a class="btn btn-color-olx float-right danger" href="/balance" role="button" style="border:1px solid black;">Відхилити</a>
+                    <a class="btn btn-color-olx float-right success" href="/balance" role="button" style="border:1px solid black;">Підтвердити</a>
+                </div>
 
                 <!-- Опис продукту -->
                 <div style="margin-bottom: 4%">
@@ -38,6 +40,5 @@
         </div>
     </div>
 {% endfor %}
-
 
 {% endblock %}
